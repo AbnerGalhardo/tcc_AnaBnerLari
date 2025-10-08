@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <div>
     <a href="login.html">Login</a>
-        <link rel="stylesheet" href="style_torcedor2.css">
+        <link rel="stylesheet" href="css/style_torcedor2.css">
         </div>
     </div>
 </div>

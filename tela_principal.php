@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VolleyConnect - Início</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <header class="main-header">
@@ -14,7 +14,19 @@
             <div class="logo">
                 <img src="./img/logo.png" alt="VolleyConnect">
             </div>
-            
+            <div class="header-menu">
+                <div class="header-option">
+                    <a href="config.php" class="header-item">
+                        <img src="./img/config.png"   alt="Ícone Config">
+                    </a>
+                    <a href="notif.php" class="header-item">
+                        <img src="./img/notif.png" alt="Ícone Notificações">
+                    </a>
+                    <a href="perfil.php" class="header-item">
+                        <img src="./img/perfil.png" alt="Ícone Perfil">
+                    </a>
+                </div>
+        </div>
         </div>
     </header>
 
@@ -33,7 +45,7 @@
                         <img src="./img/carrosel2.png" alt="Imagem do Carrossel 2">
                     </div>
                     <div class="carousel-slide">
-                        <img src="./img/carousel_image3.jpg" alt="Imagem do Carrossel 3">
+                        <img src="./img/carrosel3.png" alt="Imagem do Carrossel 3">
                     </div>
                 </div>
                 <div class="carousel-nav left" onclick="previousSlide()">&lt;</div>
@@ -49,17 +61,17 @@
 
     <footer class="main-footer">
         <div class="footer-options">
-            <a href="/Telas.php/cronograma.php" class="footer-item">
+            <a href="cronograma.php" class="footer-item">
                 <img src="./img/cronograma.png" alt="Ícone Cronograma">
-                <span>Cronograma</span>
+                
             </a>
-            <a href="/Telas.php/classificacoes.php" class="footer-item">
+            <a href="classificacoes.php" class="footer-item">
                 <img src="./img/classificacoes.png" alt="Ícone Classificações">
-                <span>Classificações</span>
+                
             </a>
-            <a href="/Telas.php/resultados.php" class="footer-item">
+            <a href="resultados.php" class="footer-item">
                 <img src="./img/resultados.png" alt="Ícone Resultados">
-                <span>Resultados</span>
+                
             </a>
         </div>
     </footer>
