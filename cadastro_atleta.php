@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <div>
-    <a href="login.html">Login</a>
+    <a href="login.php">Login</a>
     <link rel="stylesheet" href="style_atleta2.css">
 
 </div>

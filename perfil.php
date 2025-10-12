@@ -4,7 +4,7 @@ include 'conexao.php';
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['user_email']) || !isset($_SESSION['user_type'])) {
-    header('Location: login.php');
+    header('Location: login.html');
     exit();
 }
 
@@ -40,7 +40,7 @@ if ($result && mysqli_num_rows($result) == 1) {
     $user_data = mysqli_fetch_assoc($result);
 } else {
     // Usuário não encontrado ou erro, redireciona para login
-    header('Location: login.php');
+    header('Location: login.html');
     exit();
 }
 
@@ -49,6 +49,7 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="pt-br">
+<link rel="stylesheet" href="css/style_perfil.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +71,7 @@ mysqli_close($conn);
 
         <div class="profile-section">
             <div class="info-group">
-                <span class="info-label">Nome</span>
+                <span class="info-label">Nome:</span>
                 <span class="info-value"><?php echo htmlspecialchars($user_data['nome']); ?></span>
             </div>
             <button class="btn-edit">Editar nome</button>
@@ -78,7 +79,7 @@ mysqli_close($conn);
 
         <div class="profile-section">
             <div class="info-group">
-                <span class="info-label">Email</span>
+                <span class="info-label">Email:</span>
                 <span class="info-value"><?php echo htmlspecialchars($user_data['email']); ?></span>
             </div>
             <button class="btn-edit">Editar email</button>
@@ -86,11 +87,14 @@ mysqli_close($conn);
 
         <div class="profile-section">
             <div class="info-group">
-                <span class="info-label">Senha</span>
+                <span class="info-label">Senha:</span>
                 <span class="info-value">********</span> <!-- Senha mascarada -->
             </div>
             <button class="btn-edit">Mudar senha</button>
         </div>
+        <h2>
+        <a href="tela_principal.php">Retornar</a>
+      </h2>
     </div>
 </body>
 </html>
