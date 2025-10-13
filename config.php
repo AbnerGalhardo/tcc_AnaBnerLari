@@ -37,6 +37,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configurações</title>
     <link rel="stylesheet" href="css/style_config.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -96,8 +97,9 @@ mysqli_close($conn);
                     </label>
                 </div>
             </div>
+            <br>
                     <h2>
-                    <a href="tela_principal.php">Retornar</a>
+                    <button class="btn-edit" id="retorno"><a href="tela_principal.php">VOLTAR</a></button>
                     </h2>
         </form>
     </div>

@@ -50,6 +50,7 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html lang="pt-br">
 <link rel="stylesheet" href="css/style_perfil.css">
+<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,8 +93,9 @@ mysqli_close($conn);
             </div>
             <button class="btn-edit">Mudar senha</button>
         </div>
+        <br>
         <h2>
-        <a href="tela_principal.php">Retornar</a>
+        <button class="btn-edit" id="retorno"><a href="tela_principal.php">VOLTAR</a></button>
       </h2>
     </div>
 </body>

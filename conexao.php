@@ -4,7 +4,7 @@ $servidor = 'localhost';
 $banco = 'VolleyConnect';
 $port = 3306;
 $usuario = 'root';
-$senha = '';
+$senha = 'ifsp';
 
 // Estabelece a conexão diretamente na variável $conn
 $conn = mysqli_connect($servidor, $usuario, $senha, $banco, $port);

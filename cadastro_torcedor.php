@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($nome && $cpf && $email && $senha) {
 
         // Cria a conexão
-        $conn = mysqli_connect('localhost', 'root', '', 'VolleyConnect', 3306);
+        $conn = mysqli_connect('localhost', 'root', 'ifsp', 'VolleyConnect', 3306);
 
         if (!$conn) {
             die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Cadastro Concluído</title>
     <link rel="stylesheet" href="css/style_administrador2.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">

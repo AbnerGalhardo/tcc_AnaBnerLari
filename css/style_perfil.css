@@ -114,6 +114,12 @@ h1 {
     height: 44px;
 }
 
+#retorno
+{
+    color: white;
+    font-size: large;
+}
+
 .btn-edit:hover {
     background-color: #7c3aed;
     transform: translateY(-1px);

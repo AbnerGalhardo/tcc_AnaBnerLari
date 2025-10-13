@@ -62,6 +62,7 @@ mysqli_close($conn);
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
 <body>
   <div class="login-container">

@@ -45,5 +45,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div>
     <a href="login.php">Login</a>
     <link rel="stylesheet" href="style_atleta2.css">
-
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </div>

@@ -107,6 +107,26 @@ h1 {
     height: 0;
 }
 
+.btn-edit {
+    background-color: #8b5cf6;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    height: 44px;
+}
+
+#retorno
+{
+    color: white;
+    font-size: large;
+}
+
 .slider {
     position: absolute;
     cursor: pointer;
