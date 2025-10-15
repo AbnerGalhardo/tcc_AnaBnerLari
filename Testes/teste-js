@@ -11,7 +11,7 @@ Tela Principal com js:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VolleyConnect - Início</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/notif.css">
 </head>
@@ -25,7 +25,7 @@ Tela Principal com js:
                 <a href="criar_conta.html" class="btn-header">CADASTRO</a>
                 <a href="login.html" class="btn-header">ENTRAR</a>
             </nav>
-            <?php include 'notification_modal.php'; ?>
+            <?php include 'notif.php'; ?>
         </div>
     </header>
 
@@ -107,6 +107,8 @@ Tela Principal com js:
         // Auto-play do carrossel (opcional)
         setInterval(nextSlide, 5000); // Muda slide a cada 5 segundos
     </script>
-    <script src="notification_modal.js"></script>
+    <script
+    src="notif.js">
+    </script>
     </body>
 </html>

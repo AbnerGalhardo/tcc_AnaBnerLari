@@ -58,7 +58,7 @@ mysqli_close($conn);
             <!-- Atletas salvos -->
             <div class="config-item">
                 <div class="config-content">
-                    <span class="config-label">Atletas salvos</span>
+                    <span class="config-label">Atletas salvos</span> 
                 </div>
                 <div class="config-action">
                     <i class="fas fa-chevron-right"></i>
