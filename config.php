@@ -45,16 +45,6 @@ mysqli_close($conn);
         <h1>CONFIGURAÇÕES</h1>
         
         <form method="post" action="config.php">
-            <!-- Idioma -->
-            <div class="config-item dropdown-item">
-                <div class="config-content">
-                    <span class="config-label">Idioma</span>
-                </div>
-                <div class="config-action">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-
             <!-- Atletas salvos -->
             <div class="config-item">
                 <div class="config-content">
@@ -84,8 +74,17 @@ mysqli_close($conn);
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
+            <br>
+                    <h2>
+                    <button class="btn-edit" id="retorno"><a href="tela_principal.php">VOLTAR</a></button>
+                    </h2>
+        </form>
+    </div>
+</body>
+</html>
 
-            <!-- Modo noturno -->
+
+<!-- Modo noturno
             <div class="config-item modo-noturno-item">
                 <div class="config-content">
                     <span class="config-label">Modo noturno</span>
@@ -96,13 +95,6 @@ mysqli_close($conn);
                         <span class="slider"></span>
                     </label>
                 </div>
-            </div>
-            <br>
-                    <h2>
-                    <button class="btn-edit" id="retorno"><a href="tela_principal.php">VOLTAR</a></button>
-                    </h2>
-        </form>
-    </div>
-</body>
-</html>
+            </div> -->
+            
 

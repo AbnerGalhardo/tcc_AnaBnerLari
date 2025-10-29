@@ -21,11 +21,6 @@
           </label>
 
           <label>
-            <input type="radio" name="tipo_usuario" value="administrador">
-            Administrador
-          </label>
-
-          <label>
             <input type="radio" name="tipo_usuario" value="torcedor">
             Torcedor
           </label>
@@ -50,9 +45,6 @@
       switch (tipoUsuario.value) {
         case 'atleta':
           window.location.href = 'cadastro_atleta.html';
-          break;
-        case 'administrador':
-          window.location.href = 'cadastro_administrador.html';
           break;
         case 'torcedor':
           window.location.href = 'cadastro_torcedor.html';
