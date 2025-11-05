@@ -1,77 +1,85 @@
-<?php
-require_once 'conexao.php'; // garante que o arquivo seja incluído
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome       = $_POST['nome'] ?? '';
-    $cpf        = $_POST['cpf'] ?? '';
-    $email      = $_POST['email'] ?? '';
-    $senha      = $_POST['senha'] ?? '';
-    $time       = $_POST['time'] ?? '';
-    $posicao    = $_POST['posicao'] ?? '';
-    $genero     = $_POST['genero'] ?? '';
-    $idade      = $_POST['idade'] ?? '';
-
-
-
-    if ($nome && $cpf && $email && $senha && $time && $posicao && $genero && $idade ) {
-
-        // Cria a conexão
-        $conn = mysqli_connect('localhost', 'root', '', 'VolleyConnect', 3306);
-
-        if (!$conn) {
-            die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
-        }
-
-        // Define UTF-8 para evitar problemas com acentuação
-        mysqli_set_charset($conn, "utf8");
-
-        // Cria o comando SQL
-        $sql = "INSERT INTO atleta (nome, cpf, email, senha, time, posicao, genero, idade)
-                VALUES ('$nome', '$cpf', '$email', '$senha', '$time', '$posicao', '$genero', '$idade')";
-
-        // Executa o comando
-        if (mysqli_query($conn, $sql)) {
-            $mensagem = "Cadastro concluído com sucesso!";
-        } else {
-            $mensagem = "Erro ao cadastrar: " . mysqli_error($conn);
-        }
-
-        // Fecha a conexão
-        mysqli_close($conn);
-
-    } else {
-        $mensagem = "Todos os campos são obrigatórios.";
-    }
-}
-?>
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro Concluído</title>
-    <link rel="stylesheet" href="css/style_administrador2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Atleta</title>
+    <link rel="stylesheet" href="css/style_atleta.css">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
 </head>
 <body>
     <div class="container">
-        <?php if (!empty($mensagem)): ?>
-            <h1><?= htmlspecialchars($mensagem) ?></h1>
-        <?php endif; ?>
+        <?php
+            require_once 'includes/funcoes.php';
+            require_once 'core/conexao.php';
+            require_once 'core/sql.php';
+            require_once 'core/mysql.php';
+        ?>
 
-        <?php if (!empty($nome)): ?>
-            <p><strong>Nome:</strong> <?= htmlspecialchars($nome) ?></p>
-            <p><strong>CPF:</strong> <?= htmlspecialchars($cpf) ?></p>
-            <p><strong>Email:</strong> <?= htmlspecialchars($email) ?></p>
-            <p><strong>Senha:</strong> <?= htmlspecialchars($senha) ?></p>
-            <p><strong>Time:</strong> <?= htmlspecialchars($time) ?></p>
-            <p><strong>Posicao:</strong> <?= htmlspecialchars($posicao) ?></p>
-            <p><strong>Genero:</strong> <?= htmlspecialchars($genero) ?></p>
-            <p><strong>Idade:</strong> <?= htmlspecialchars($idade) ?></p>
+        <h1>Cadastro Atleta</h1>
+        <form action="core/usuario_repositorio.php" method="post">
+            <input type="hidden" name="acao" value="<?php echo empty($id) ? 'insert' : 'update' ?>">
+            <input type="hidden" name="id" value="<?php echo $entidade['id'] ?? '' ?>">
+            <input type="hidden" name="perfil" value="atleta">
 
-        <?php endif; ?>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+            <br>
+            <label for="cpf">CPF</label>
+            <input type="tel" name="cpf" id="cpf"> 
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required> 
+            <br>
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha">
+            <br>
+            <label for="time">Time:</label>
+            <?php
+                $result = buscar (
+                    'time',
+                    [
+                        'id',
+                        'nome',
+                        'genero'
+                    ],
+                    [],
+                    ''
+                );
+                ?>
+                <select name="time" id="time" required>
+                <?php
+                    foreach($result as $entidade):
+                ?>
+                <option value=<?php echo "'".$entidade['id']."'" ?> > <?php echo $entidade['nome'] ?> </option>
+                <?php endforeach; ?>
+               </select>  
 
-        <a href="login.php" class="botao">Login</a>
+            
+            <br>   
+            <label for="posicao">Posição:</label>
+            <select name="posicao" id="posicao" required>
+                <option value="levantador">Levantador</option>
+                <option value="oposto">Oposto</option>
+                <option value="libero">Líbero</option>
+                <option value="ponteiro">Ponteiro</option>
+                <option value="central">Central</option>
+            </select> 
+            <br>
+            <label for="genero">Gênero:</label>
+            <select name="genero" id="genero" required>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>  
+            <br>
+            <label for="idade">Idade</label>
+            <input type="number" name="idade" id="idade">     
+            <br>
+        </select>
+            <button type="submit">Cadastrar</button>
+        </form>
     </div>
+    
 </body>
 </html>

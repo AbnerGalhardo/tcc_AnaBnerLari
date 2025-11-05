@@ -1,13 +1,10 @@
 <?php
-include 'conexao.php';
+include 'core/conexao.php';
+
 session_start();
+include 'includes/valida_login.php';
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['user_email']) || !isset($_SESSION['user_type'])) {
-    header("Location: login.php");
-    exit();
-}
-
+?>
 // Processa as configurações se o formulário for enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Aqui você pode adicionar a lógica para salvar as configurações

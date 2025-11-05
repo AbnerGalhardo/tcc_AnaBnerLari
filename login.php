@@ -1,5 +1,6 @@
 <?php
-include 'conexao.php';
+/*
+include 'core/conexao.php';
 session_start();
 
 $login_error = '';
@@ -17,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Array com as tabelas para verificar
         $tables = ['atleta', 'administrador', 'torcedor'];
         
-        foreach ($tables as $table) {
+        foreach ($t
+        ables as $table) {
             $sql = "SELECT nome, email FROM $table WHERE email = ? AND senha = ?";
             $stmt = mysqli_prepare($conn, $sql);
             
@@ -54,7 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 mysqli_close($conn);
-?>
+*/
+?> 
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -76,10 +79,10 @@ mysqli_close($conn);
           <p class="error-message"><?php echo htmlspecialchars($login_error); ?></p>
       <?php endif; ?>
 
-      <form action="login.php" method="post">
+      <form action="core/usuario_repositorio.php" method="post">
+       <input type="hidden" name="acao" value="login">
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="E-mail" required value="<?php echo htmlspecialchars($email ?? ''); ?>">
-<br>
+        <input type="email" id="email" name="email" placeholder="E-mail" required >
         <label for="senha">Senha</label>
         <input type="password" id="senha" name="senha" placeholder="Senha" required>
         <button type="submit">Login</button>

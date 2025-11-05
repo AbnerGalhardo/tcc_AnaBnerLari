@@ -1,12 +1,9 @@
 <?php
 session_start();
-include 'conexao.php';
+include 'core/conexao.php';
+include 'includes/valida_login.php';
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['user_email']) || !isset($_SESSION['user_type'])) {
-    header('Location: login.html');
-    exit();
-}
+?>
 
 $user_email = $_SESSION['user_email'];
 $user_type = $_SESSION['user_type'];
