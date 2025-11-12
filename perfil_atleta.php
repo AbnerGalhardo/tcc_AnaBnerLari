@@ -1,7 +1,31 @@
 <?php
-session_start();
-include 'core/conexao.php';
-include 'includes/valida_login.php';
+    session_start();
+    require_once 'includes/funcoes.php';
+    require_once 'core/conexao.php';
+    require_once 'core/sql.php';
+    require_once 'core/mysql.php';
+    include 'includes/valida_login.php';
+
+    $criterio = [
+        ['id_usuario', '=', $_SESSION['login']['usuario']['id']]
+    ];
+
+
+
+    $atleta = buscar(
+        'atleta',
+        [
+            'id',
+            'id_time',
+            'posicao',
+            'genero',
+            '(select nome 
+                from time
+                where time.id = atleta.id_time) as nome_time'
+        ],
+        $criterio
+    );
+    $atleta = $atleta[0];
 ?>
 
 
@@ -32,6 +56,24 @@ include 'includes/valida_login.php';
             <div class="info-group">
                 <span class="info-label">Nome:</span>
                 <span class="info-value"><?php echo htmlspecialchars($_SESSION['login']['usuario']['nome']); ?></span>
+            </div>
+        </div>
+        <div class="profile-section">
+            <div class="info-group">
+                <span class="info-label">Time:</span>
+                <span class="info-value"><?php echo htmlspecialchars($atleta['nome_time']); ?></span>
+            </div>
+        </div>
+        <div class="profile-section">
+            <div class="info-group">
+                <span class="info-label">Gênero:</span>
+                <span class="info-value"><?php echo htmlspecialchars($atleta['genero']); ?></span>
+            </div>
+        </div>
+        <div class="profile-section">
+            <div class="info-group">
+                <span class="info-label">Posição:</span>
+                <span class="info-value"><?php echo htmlspecialchars($atleta['posicao']); ?></span>
             </div>
         </div>
 

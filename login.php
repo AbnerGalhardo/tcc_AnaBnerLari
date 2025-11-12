@@ -1,8 +1,8 @@
 <?php
-/*
+
 include 'core/conexao.php';
 session_start();
-
+/*
 $login_error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -75,8 +75,8 @@ mysqli_close($conn);
         Login ou <a href="criar_conta.html">Criar conta</a>
       </h2>
 
-      <?php if (!empty($login_error)): ?>
-          <p class="error-message"><?php echo htmlspecialchars($login_error); ?></p>
+      <?php if (!empty($_SESSION['ERRO_LOGIN'])): ?>
+          <p class="error-message"><?php echo htmlspecialchars($_SESSION['ERRO_LOGIN']); ?></p>
       <?php endif; ?>
 
       <form action="core/usuario_repositorio.php" method="post">

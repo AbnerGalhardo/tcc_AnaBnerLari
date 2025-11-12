@@ -39,6 +39,7 @@ switch ($acao) {
                 'idade' => $idade,
             ];
             
+
             insere(
                 'atleta',
                 $dados
@@ -69,7 +70,9 @@ switch ($acao) {
         break;
 
     case 'login':
+        unset($_SESSION['ERRO_LOGIN']);
         $criterio = [
+
             ['email', '=', $email]            
         ];
 
@@ -78,6 +81,7 @@ switch ($acao) {
             ['id', 'nome', 'email', 'senha', 'perfil'],
             $criterio
         );
+        print_r($retorno);
         
         if (count($retorno) > 0) {
             if (crypt($senha, $salt) == $retorno[0]['senha']) {
@@ -88,16 +92,21 @@ switch ($acao) {
                     header('Location: ' . $_SESSION['url_retorno']);
                     $_SESSION['url_retorno'] = '';
                     exit;
-                }else{
+                }
+                else
+                {
                     header('Location: ../tela_principal.php');
+                    exit;
                 }
             }
         }
-
+        $_SESSION['ERRO_LOGIN'] = 'E-mail e/ou senha incorreto(s)!';
+        //header('Location: ../login.php');
         break;
 
     case 'logout':
         session_destroy();
+        header('Location: ../index.php');
         break;
 
 

@@ -5,27 +5,6 @@ session_start();
 include 'includes/valida_login.php';
 
 ?>
-// Processa as configurações se o formulário for enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Aqui você pode adicionar a lógica para salvar as configurações
-    // Por exemplo, salvar no banco de dados ou em sessão
-    
-    if (isset($_POST['modo_noturno'])) {
-        $_SESSION['modo_noturno'] = $_POST['modo_noturno'] === 'on';
-    } else {
-        $_SESSION['modo_noturno'] = false;
-    }
-    
-    // Redireciona para evitar reenvio do formulário
-    header("Location: config.php");
-    exit();
-}
-
-// Verifica o estado atual do modo noturno
-$modo_noturno = $_SESSION['modo_noturno'] ?? false;
-
-mysqli_close($conn);
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,17 +21,7 @@ mysqli_close($conn);
         <h1>CONFIGURAÇÕES</h1>
         
         <form method="post" action="config.php">
-            <!-- Atletas salvos -->
-            <div class="config-item">
-                <div class="config-content">
-                    <span class="config-label">Atletas salvos</span> 
-                </div>
-                <div class="config-action">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
-
-            <!-- Notificações -->
+            
             <div class="config-item">
                 <div class="config-content">
                     <span class="config-label">Notificações</span>
@@ -62,7 +31,15 @@ mysqli_close($conn);
                 </div>
             </div>
 
-            <!-- Ajuda e perguntas frequentes -->
+            <div class="config-item">
+                <div class="config-content">
+                    <span class="config-label">Meus encontros</span>
+                </div>
+                <div class="config-action">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+
             <div class="config-item">
                 <div class="config-content">
                     <span class="config-label">Ajuda e perguntas frequentes</span>
@@ -81,17 +58,6 @@ mysqli_close($conn);
 </html>
 
 
-<!-- Modo noturno
-            <div class="config-item modo-noturno-item">
-                <div class="config-content">
-                    <span class="config-label">Modo noturno</span>
-                </div>
-                <div class="config-action">
-                    <label class="toggle-switch">
-                        <input type="checkbox" name="modo_noturno" <?php echo $modo_noturno ? 'checked' : ''; ?> onchange="this.form.submit()">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div> -->
+
             
 

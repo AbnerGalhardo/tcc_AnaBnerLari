@@ -16,7 +16,7 @@
             include 'includes/valida_login.php';
 
         ?>
-            
+
         <div class="header-content">
             <div class="logo">
                 <img src="./img/logo.png" alt="VolleyConnect">
@@ -29,20 +29,37 @@
                     <a href="notif.php" class="header-item">
                         <img src="./img/notif.png" alt="Ícone Notificações">
                     </a>
-                    <a href="perfil.php" class="header-item">
-                        <img src="./img/perfil.png" alt="Ícone Perfil">
-                    </a>
+                    <?php if(($_SESSION['login']['usuario']['perfil']=='atleta')): ?>
+                        <a href="perfil_atleta.php" class="header-item">
+                            <img src="./img/perfil.png" alt="Ícone Perfil">
+                        </a>
+                    <?php endif ?>
+                    <?php if(($_SESSION['login']['usuario']['perfil']=='torcedor')): ?>
+                        <a href="perfil.php" class="header-item">
+                            <img src="./img/perfil.png" alt="Ícone Perfil">
+                        </a>
+                    <?php endif ?>
+
+                    <?php if(($_SESSION['login']['usuario']['perfil']=='administrador')): ?>
+                        <a href="perfil_adm.php" class="header-item">
+                            <img src="./img/perfil.png" alt="Ícone Perfil">
+                        </a>
+                    <?php endif ?>
+
                     <?php if(isset($_SESSION['login'])): ?>
-                <div class="card-body text-right">Olá <?php echo $_SESSION['login']['usuario']['nome'] ?>!
-                    <a href="core/usuario_repositorio.php?acao=logout" class="btn btn-link btn-sm" role="button">Sair</a>
-                </div>
-    <?php endif ?>
-                </div>
+                    <div class="card-body text-right">Olá <?php echo $_SESSION['login']['usuario']['nome'] ?>!
+                        <a href="core/usuario_repositorio.php?acao=logout" class="btn btn-link btn-sm" role="button">Sair</a>
+                    </div>
+                    <?php endif ?>
+            </div>
                 
         </div>
         </div>
     </header>
 
+    <section class="call-to-action">
+            <h2>VOCÊ TEM 0 ENCONTROS AGENDADOS!</h2>
+        </section>
     <main class="main-content">
         <section class="call-to-action">
             <h2></h2>

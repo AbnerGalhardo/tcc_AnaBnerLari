@@ -24,16 +24,6 @@ create table time
     primary key (id)
 );
 
-/*
-create table cronograma 
-(
-	id int not null auto_increment,
-    mes varchar(15),
-    primary key (id)
-);
-
-*/
-
 create table campeonato
 (
 	id int not null auto_increment,
@@ -64,21 +54,6 @@ create table jogo
 	constraint FK_Jogo_Campeonato foreign key (id_campeonato) references campeonato(id)
 );
 
-
-/*
-create table administrador
-(
-	id int not null auto_increment,
-    nome varchar(100),
-    cpf varchar(20),
-    credencial varchar(40),
-    email varchar(40),
-    senha varchar(100),
-    primary key (id)
-);
-*/
-
-
 create table atleta
 (
 	id int not null auto_increment,
@@ -108,44 +83,7 @@ create table torcedor_atleta_salvo
     constraint FK_torcedor_atleta_salvo_atleta foreign key (id_atleta) references atleta(id),
     constraint FK_torcedor_atleta_salvo_torcedor foreign key (id_torcedor) references usuario(id)
 );
-/*
-create table torcedor 
-(
-	id int not null auto_increment,
-    nome varchar(100),
-    cpf varchar(20),
-    email varchar(40),
-    senha varchar(100),
-    primary key (id)
-);
 
-create table seleciona
-(
-	id_torcedor int not null auto_increment,
-    id_atleta int not null,
-    primary key (id_torcedor, id_atleta),
-    foreign key (id_torcedor) references torcedor (id),
-    foreign key (id_atleta) references atleta (id)
-);
-
-create table encontro
-(
-	id_torcedor int not null auto_increment,
-    id_atleta int not null,
-    primary key (id_torcedor, id_atleta),
-    foreign key (id_torcedor) references torcedor (id),
-    foreign key (id_atleta) references atleta (id)
-);
-
-create table assiste
-(
-	id_torcedor int not null,
-    id_jogo int not null auto_increment,
-    primary key (id_torcedor, id_jogo),
-    foreign key (id_torcedor) references torcedor (id),
-    foreign key (id_jogo) references jogo (id)
-);
-*/
 create table atleta_encontro 
 (
 	id int not null auto_increment,
@@ -170,15 +108,14 @@ create table atleta_encontro_torcedor
     
 );
 
-/*
-create table acessa 
-(
-	id_usuario int not null,
-    id_mes int not null,
-    primary key (id_usuario, id_mes),
-    foreign key (id_usuario) references usuario (id),
-    foreign key (id_mes) references cronograma (id)
-);
-*/
-
--- SELECT * FROM torcedor;
+insert into time (id, nome, genero)
+	values 
+         (1, 'Sada', 'Feminino'),
+         (2, 'Sesi Bauru', 'Feminino'),
+         (3, 'Minas', 'Feminino'),
+         (4, 'Flamengo', 'Feminino');
+         
+insert into time (id, nome, genero)
+	values 
+	(5, 'Praia Clube', 'Masculino'),
+	(6, 'Cruzeiro', 'Masculino');
