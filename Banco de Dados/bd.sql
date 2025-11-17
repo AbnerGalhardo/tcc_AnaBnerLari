@@ -119,3 +119,6 @@ insert into time (id, nome, genero)
 	values 
 	(5, 'Praia Clube', 'Masculino'),
 	(6, 'Cruzeiro', 'Masculino');
+
+    
+
