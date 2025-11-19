@@ -108,6 +108,20 @@ create table atleta_encontro_torcedor
     
 );
 
+ALTER TABLE atleta
+ADD nome VARCHAR(100),
+ADD foto VARCHAR(200);
+
+CREATE TABLE notificacao (
+    id INT NOT NULL AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    mensagem VARCHAR(255),
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    visualizada TINYINT DEFAULT 0,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+);
+
 insert into time (id, nome, genero)
 	values 
          (1, 'Sada', 'Feminino'),
@@ -119,6 +133,9 @@ insert into time (id, nome, genero)
 	values 
 	(5, 'Praia Clube', 'Masculino'),
 	(6, 'Cruzeiro', 'Masculino');
-
     
+insert into atleta (nome, genero, posicao, idade, id_time, id_usuario)
+	values 
+	('Carolana', 'Feminino', 'Central', 32, 3, 10);
 
+select * from usuario;

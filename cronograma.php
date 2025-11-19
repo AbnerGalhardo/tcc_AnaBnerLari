@@ -1,4 +1,5 @@
-<?php include "includes/header.php"; ?>
+<?php 
+?>
 <link rel="stylesheet" href="css/cronograma.css">
 <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 
@@ -6,9 +7,6 @@
     <a href="tela_principal.php" class="voltar">←</a>
     <h2><img src="img/calendar.png" class="icon"> Cronograma</h2>
     <div class="icons-right">
-        <img src="img/bell.png">
-        <img src="img/config.png">
-        <img src="img/user.png">
     </div>
 </div>
 
@@ -52,4 +50,3 @@
     <a href="cronograma_detalhes.php">clique aqui</a> para mais informações
 </div>
 
-<?php include "includes/footer.php"; ?>

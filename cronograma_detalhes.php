@@ -1,4 +1,3 @@
-<?php include "includes/header.php"; ?>
 <link rel="stylesheet" href="css/cronograma_detalhes.css">
 <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 <div class="container-cronograma">
@@ -6,8 +5,9 @@
     <a href="cronograma.php" class="voltar-topo" aria-label="Voltar">←</a>
 
     <div class="titulo-area">
+       <label class="titulo-area">
         <select id="select-mes" class="select-mes" aria-label="Selecionar mês"></select>
-        <h1 id="titulo-mes" class="titulo">JANEIRO ▼</h1>
+        <h1 id="titulo-mes" class="titulo">JANEIRO</h1>
     </div>
 
     <div class="filtros">
@@ -45,7 +45,7 @@
                 Birigui - SP, 15/01 às 15:00
             </div>
 
-            <a class="btn" href="#">MARCAR ENCONTRO</a>
+            <a class="btn" href="encontro.php">MARCAR ENCONTRO</a>
         </div>
 
         <div class="item" data-mes="1" data-genero="masculino" data-campeonato="paulista">
@@ -60,7 +60,7 @@
                 Birigui - SP, 15/01 às 17:00
             </div>
 
-            <a class="btn" href="#">MARCAR ENCONTRO</a>
+            <a class="btn" href="encontro.php">MARCAR ENCONTRO</a>
         </div>
 
         <div class="item" data-mes="1" data-genero="feminino" data-campeonato="nacional">
@@ -75,7 +75,7 @@
                 Birigui - SP, 15/01 às 19:00
             </div>
 
-            <a class="btn" href="#">MARCAR ENCONTRO</a>
+            <a class="btn" href="encontro.php">MARCAR ENCONTRO</a>
         </div>
 
     </div>
@@ -150,4 +150,3 @@
 })();
 </script>
 
-<?php include "includes/footer.php"; ?>
