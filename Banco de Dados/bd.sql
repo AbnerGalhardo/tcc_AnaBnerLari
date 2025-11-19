@@ -137,5 +137,10 @@ insert into time (id, nome, genero)
 insert into atleta (nome, genero, posicao, idade, id_time, id_usuario)
 	values 
 	('Carolana', 'Feminino', 'Central', 32, 3, 10);
+    
+insert into campeonato 
+values  (1, 'Regional', 'Feminino'),
+		(2, 'Paulista', 'Feminino'),
+        (3, 'Nacional', 'Feminino');
 
 select * from usuario;

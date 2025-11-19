@@ -1,3 +1,33 @@
+<?php
+    session_start();
+    require_once 'includes/funcoes.php';
+    require_once 'core/conexao.php';
+    require_once 'core/sql.php';
+    require_once 'core/mysql.php';
+    include 'includes/valida_login.php';
+
+    $criterio = [
+        ['id_usuario', '=', $_SESSION['login']['usuario']['id']]
+    ];
+
+
+
+    $atleta = buscar(
+        'atleta',
+        [
+            'id',
+            'id_time',
+            'posicao',
+            'genero',
+            '(select nome 
+                from time
+                where time.id = atleta.id_time) as nome_time'
+        ],
+        $criterio
+    );
+    $atleta = $atleta[0];
+?>
+
 <link rel="stylesheet" href="css/cronograma_detalhes.css">
 <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 <div class="container-cronograma">
@@ -45,7 +75,7 @@
                 Birigui - SP, 15/01 às 15:00
             </div>
 
-            <a class="btn" href="encontro.php">MARCAR ENCONTRO</a>
+            <a class="btn" href="disponibilidade.php">INFORMAR DISPONIBILIDADE</a>
         </div>
 
         <div class="item" data-mes="1" data-genero="masculino" data-campeonato="paulista">
@@ -60,7 +90,7 @@
                 Birigui - SP, 15/01 às 17:00
             </div>
 
-            <a class="btn" href="encontro.php">MARCAR ENCONTRO</a>
+            <a class="btn" href="disponibilidade.php">INFORMAR DISPONIBILIDADE</a>
         </div>
 
         <div class="item" data-mes="1" data-genero="feminino" data-campeonato="nacional">
@@ -75,7 +105,7 @@
                 Birigui - SP, 15/01 às 19:00
             </div>
 
-            <a class="btn" href="encontro.php">MARCAR ENCONTRO</a>
+            <a class="btn" href="disponibilidade.php">INFORMAR DISPONIBILIDADE</a>
         </div>
 
     </div>
@@ -114,7 +144,7 @@
 
         // atualiza título
         const mesIndex = parseInt(mesSel, 10) - 1;
-        titulo.textContent = (meses[mesIndex] || '') + " ▼";
+        titulo.textContent = (meses[mesIndex] || '') + "";
 
         // percorre itens e mostra/oculta
         const itens = lista.querySelectorAll('.item');
